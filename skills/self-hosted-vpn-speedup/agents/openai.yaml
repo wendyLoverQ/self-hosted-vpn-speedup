@@ -1,0 +1,4 @@
+interface:
+  display_name: "Self-hosted VPN Speedup"
+  short_description: "Measure and improve direct VPS VPN throughput"
+  default_prompt: "Use $self-hosted-vpn-speedup to measure my self-hosted VPN and test receive-window tuning and parallel tunnels."
