@@ -19,7 +19,7 @@ Use [scripts/benchmark_proxy.py](scripts/benchmark_proxy.py) for bounded, indepe
 
 Read [references/hysteria2-mihomo.md](references/hysteria2-mihomo.md) when working with Hysteria 2/Mihomo.
 
-On a high-RTT path with adequate capacity, test larger QUIC receive windows on the receiving side. Verify installed-version support and change this separately from congestion control. Retain a repeatable gain without claiming it proves ISP per-connection policing.
+On a high-RTT path with adequate capacity, test larger QUIC receive windows on the receiving side. Verify installed-version support and change this separately from congestion control. Retain a repeatable gain without claiming it proves ISP per-connection policing. Test the same window change under aggregate load before applying it to every alias; use separate single-tunnel and parallel profiles when their measured needs differ.
 
 For aggregate throughput, clone the same direct Hysteria node under distinct names and use a `load-balance` group with `round-robin`. Preserve authentication, server, SNI and certificate verification. Confirm independent outer tunnel connections actually open in the installed core; aliases alone are not proof.
 

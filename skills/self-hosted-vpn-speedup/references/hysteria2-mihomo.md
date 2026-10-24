@@ -27,7 +27,7 @@ max-connection-receive-window: 67108864
 
 For the official Hysteria client the same values belong under `quic`, with keys `initStreamReceiveWindow`, `maxStreamReceiveWindow`, `initConnReceiveWindow`, `maxConnReceiveWindow`. The [pinned Mihomo adapter](https://github.com/MetaCubeX/mihomo/blob/v1.19.32/adapter/outbound/hysteria2.go) defines and forwards the four fields above.
 
-These are flow-control byte windows, not fixed speed settings. Larger windows can help some high-delay paths and increase potential buffering, multiplied across active tunnels. Do not calculate a precise throughput ceiling from these values alone: congestion control, acknowledgements, packet loss and application consumption interact. Keep the settings only if A/B tests improve the relevant workload without resource pressure.
+These are flow-control byte windows, not fixed speed settings. Larger windows can help some high-delay paths and increase potential buffering, multiplied across active tunnels. Do not calculate a precise throughput ceiling from these values alone: congestion control, acknowledgements, packet loss and application consumption interact. Keep the settings only if A/B tests improve the relevant workload without resource pressure. A single-connection gain may disappear or reverse under many simultaneous tunnels. Compare both workloads; it is valid to keep a larger window only on the standalone node and default windows on parallel aliases.
 
 ## Independent tunnels
 

@@ -2,7 +2,7 @@
 
 自建 VPN 提速的 Codex Skill：保持 VPS 作为直连出口，通过实测排查限速、优化单连接接收窗口，并用多条独立隧道提高并发总吞吐。
 
-An agent skill for measuring and improving a self-hosted VPS VPN, with Hysteria 2 / Mihomo tooling. MIT licensed. Version **0.1.0**.
+An agent skill for measuring and improving a self-hosted VPS VPN, with Hysteria 2 / Mihomo tooling. MIT licensed. Version **0.1.1**.
 
 ## 能做什么
 
@@ -11,6 +11,8 @@ An agent skill for measuring and improving a self-hosted VPS VPN, with Hysteria 
 - 为同一 VPS 生成多个独立 Hysteria 2 节点，使用 round-robin 分配新连接。
 - 测量不同隧道数量的收益和平台期，避免把“更多路”当成必然更快。
 - 保存持久配置、校验、清理临时资源；尊重用户自行操作客户端按钮的要求。
+
+单连接有效的窗口参数，也要在多路并发下单独复测；两种用途可以保留不同配置。
 
 多路可以提高同时存在多个独立连接时的总速度。它不会自动把普通单连接下载拆成多份；分段下载器需要实际建立多个连接。所有速度统一报告为 **MB/s**。
 
